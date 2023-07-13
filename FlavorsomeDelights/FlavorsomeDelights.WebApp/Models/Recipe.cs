@@ -28,4 +28,8 @@ namespace FlavorsomeDelights.WebApp.Models
         public int CategoryId { get; set; }
         public Category Category { get; set; }
     }
+    public class RecipeContext : DbContext
+    {
+        public DbSet<Recipe> Recipes { get; set; }
+    }
 }

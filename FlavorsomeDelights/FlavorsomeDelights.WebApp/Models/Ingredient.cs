@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 
 namespace FlavorsomeDelights.WebApp.Models
 {
@@ -15,5 +16,9 @@ namespace FlavorsomeDelights.WebApp.Models
         public int Quantity { get; set; }
         [Required]
         public bool IsAllergic { get; set; }
+    }
+    public class IngredientContext : DbContext
+    {
+        public DbSet<Ingredient> Ingredients { get; set; }
     }
 }

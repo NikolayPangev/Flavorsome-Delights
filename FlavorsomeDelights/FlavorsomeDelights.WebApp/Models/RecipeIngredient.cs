@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 
 namespace FlavorsomeDelights.WebApp.Models
 {
-    public class Recipies_Ingredients
+    public class RecipeIngredient
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -16,5 +17,9 @@ namespace FlavorsomeDelights.WebApp.Models
         [Required]
         [ForeignKey("Ingredient")]
         public int IngredientId { get; set; }
+    }
+    public class RecipeIngredientContext : DbContext
+    {
+        public DbSet<RecipeIngredient> RecipesIngredients { get; set; }
     }
 }

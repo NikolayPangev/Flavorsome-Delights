@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 
 namespace FlavorsomeDelights.WebApp.Models
 {
@@ -18,5 +19,9 @@ namespace FlavorsomeDelights.WebApp.Models
         [ForeignKey("Collection")]
         public int CollectionId { get; set; }
         public virtual Collection Collection { get; set; }
+    }
+    public class FavoriteContext : DbContext
+    {
+        public DbSet<Favorite> Favorites { get; set; }
     }
 }

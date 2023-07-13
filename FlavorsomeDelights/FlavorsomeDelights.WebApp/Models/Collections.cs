@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 
 namespace FlavorsomeDelights.WebApp.Models
 {
@@ -12,4 +13,9 @@ namespace FlavorsomeDelights.WebApp.Models
         [Required]
         public string Type { get; set; } = null!;
     }
+    public class CollectionContext : DbContext
+    {
+        public DbSet<Collection> Collections { get; set; }
+    }
 }
+
