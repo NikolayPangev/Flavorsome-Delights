@@ -9,6 +9,7 @@ namespace FlavorsomeDelights.WebApp.Models
     public class Recipe
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RecipeId { get; set; }
 
         [Required]
