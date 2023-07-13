@@ -8,9 +8,9 @@ namespace FlavorsomeDelights.WebApp.Models
         public int IngredientId { get; set; }
         [Required]
         public string? Name { get; set; }
-
+        [Required]
         public int Quantity { get; set; }
-
+        [Required]
         public bool isAllergic { get; set; }
     }
 }
