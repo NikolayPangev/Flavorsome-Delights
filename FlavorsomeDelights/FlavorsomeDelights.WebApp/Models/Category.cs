@@ -8,6 +8,7 @@ namespace FlavorsomeDelights.WebApp.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CategoryId { get; set; }
+
         [Required]
         public string Type { get; set; }
     }
