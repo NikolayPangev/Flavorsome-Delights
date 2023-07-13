@@ -20,7 +20,10 @@ namespace FlavorsomeDelights.WebApp.Models
         public string Complexity { get; set; }
         [Required]
         public string Serves { get; set; }
-        
+        [Required]
+        public string ImageUrl { get; set; }
+
+        [Required]
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }

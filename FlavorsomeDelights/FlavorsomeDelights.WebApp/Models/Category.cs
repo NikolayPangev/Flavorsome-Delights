@@ -11,5 +11,7 @@ namespace FlavorsomeDelights.WebApp.Models
 
         [Required]
         public string Type { get; set; }
+        [Required]
+        public string CategoryImageUrl { get; set; }
     }
 }
