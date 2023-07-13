@@ -13,15 +13,15 @@ namespace FlavorsomeDelights.WebApp.Models
         public int RecipeId { get; set; }
 
         [Required]
-        public string Title { get; set; }
+        public string Title { get; set; } = null!;
         [Required]
-        public string HowToPrepare { get; set; }
+        public string HowToPrepare { get; set; } = null!;
         [Required]
-        public string Complexity { get; set; }
+        public string Complexity { get; set; } = null!;
         [Required]
-        public string Serves { get; set; }
+        public string Serves { get; set; } = null!;
         [Required]
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } = null!;
 
         [Required]
         [ForeignKey("Category")]
