@@ -3,17 +3,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FlavorsomeDelights.WebApp.Models
 {
-    public class Favorites
+    public class Favorite
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int FavoriteId { get; set; }
 
         public int RecipeId { get; set; }
-        [ForeignKey(nameof(RecipeId))]
+        [ForeignKey("Recipe")]
         public virtual Recipe Recipe { get; set; }
-        [ForeignKey("Collections")]
-        public int CollectionsId { get; set; }
-        public virtual Collections Collections { get; set; }
+        [ForeignKey("Collection")]
+        public int CollectionId { get; set; }
+        public virtual Collection Collection { get; set; }
     }
 }

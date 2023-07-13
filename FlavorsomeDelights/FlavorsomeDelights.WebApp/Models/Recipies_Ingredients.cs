@@ -7,7 +7,7 @@ namespace FlavorsomeDelights.WebApp.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int RecipeIngredientId { get; set; }
 
         [ForeignKey("Recipe")]
         public int RecipeId { get; set; }
