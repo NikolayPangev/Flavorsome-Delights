@@ -13,9 +13,5 @@ namespace FlavorsomeDelights.WebApp.Models
         [Required]
         public string Type { get; set; } = null!;
     }
-    public class CollectionContext : DbContext
-    {
-        public DbSet<Collection> Collections { get; set; }
-    }
 }
 

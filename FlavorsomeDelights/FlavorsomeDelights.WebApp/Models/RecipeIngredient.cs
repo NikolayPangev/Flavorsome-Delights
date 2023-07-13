@@ -18,8 +18,4 @@ namespace FlavorsomeDelights.WebApp.Models
         [ForeignKey("Ingredient")]
         public int IngredientId { get; set; }
     }
-    public class RecipeIngredientContext : DbContext
-    {
-        public DbSet<RecipeIngredient> RecipesIngredients { get; set; }
-    }
 }

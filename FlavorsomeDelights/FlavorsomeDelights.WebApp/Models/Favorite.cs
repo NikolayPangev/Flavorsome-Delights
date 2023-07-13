@@ -20,8 +20,4 @@ namespace FlavorsomeDelights.WebApp.Models
         public int CollectionId { get; set; }
         public virtual Collection Collection { get; set; }
     }
-    public class FavoriteContext : DbContext
-    {
-        public DbSet<Favorite> Favorites { get; set; }
-    }
 }

@@ -15,10 +15,6 @@ namespace FlavorsomeDelights.WebApp.Models
         [Required]
         public string CategoryImageUrl { get; set; } = null!;
     }
-    public class CategoryContext : DbContext
-    {
-        public DbSet<Category> Categories { get; set; }
-    }
 }
 
 

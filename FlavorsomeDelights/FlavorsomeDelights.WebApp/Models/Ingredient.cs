@@ -17,8 +17,4 @@ namespace FlavorsomeDelights.WebApp.Models
         [Required]
         public bool IsAllergic { get; set; }
     }
-    public class IngredientContext : DbContext
-    {
-        public DbSet<Ingredient> Ingredients { get; set; }
-    }
 }
