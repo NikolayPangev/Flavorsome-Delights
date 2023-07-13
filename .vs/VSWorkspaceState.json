@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\FlavorsomeDelights"
+    "\\FlavorsomeDelights",
+    "\\FlavorsomeDelights\\FlavorsomeDelights.WebApp",
+    "\\FlavorsomeDelights\\FlavorsomeDelights.WebApp\\Models"
   ],
-  "SelectedNode": "\\FlavorsomeDelights\\FlavorsomeDelights.sln",
+  "SelectedNode": "\\FlavorsomeDelights\\FlavorsomeDelights.WebApp\\FlavorsomeDelights.WebApp.csproj",
   "PreviewInSolutionExplorer": false
 }
