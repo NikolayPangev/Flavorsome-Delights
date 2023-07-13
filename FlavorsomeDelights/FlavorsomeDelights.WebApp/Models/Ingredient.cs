@@ -14,6 +14,6 @@ namespace FlavorsomeDelights.WebApp.Models
         [Required]
         public int Quantity { get; set; }
         [Required]
-        public bool isAllergic { get; set; }
+        public bool IsAllergic { get; set; }
     }
 }

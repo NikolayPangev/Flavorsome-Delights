@@ -9,9 +9,12 @@ namespace FlavorsomeDelights.WebApp.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int FavoriteId { get; set; }
 
-        public int RecipeId { get; set; }
+        [Required]
         [ForeignKey("Recipe")]
+        public int RecipeId { get; set; }
         public virtual Recipe Recipe { get; set; }
+
+        [Required]
         [ForeignKey("Collection")]
         public int CollectionId { get; set; }
         public virtual Collection Collection { get; set; }

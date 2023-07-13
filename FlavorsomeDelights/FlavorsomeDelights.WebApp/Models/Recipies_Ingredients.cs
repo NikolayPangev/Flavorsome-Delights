@@ -9,9 +9,11 @@ namespace FlavorsomeDelights.WebApp.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RecipeIngredientId { get; set; }
 
+        [Required]
         [ForeignKey("Recipe")]
         public int RecipeId { get; set; }
 
+        [Required]
         [ForeignKey("Ingredient")]
         public int IngredientId { get; set; }
     }
