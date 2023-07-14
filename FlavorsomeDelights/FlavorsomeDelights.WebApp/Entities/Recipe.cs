@@ -21,6 +21,7 @@ namespace FlavorsomeDelights.WebApp.Models
         [MaxLength(15)]
         public string Complexity { get; set; } = null!;
         [Required]
+        [MaxLength(20)]
         public int Serves { get; set; }
         [Required]
         public string ImageUrl { get; set; } = null!;

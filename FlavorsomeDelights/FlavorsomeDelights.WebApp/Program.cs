@@ -1,7 +1,11 @@
+using FlavorsomeDelights.WebApp.Database;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<Contexts>(options => options.UseSqlServer(builder.Configuration["ConnectionStrings:SqlDb"]));
 
 var app = builder.Build();
 

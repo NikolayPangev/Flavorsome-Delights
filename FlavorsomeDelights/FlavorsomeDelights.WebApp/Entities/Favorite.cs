@@ -12,11 +12,11 @@ namespace FlavorsomeDelights.WebApp.Models
         [Required]
         [ForeignKey("Recipe")]
         public int RecipeId { get; set; }
-        public virtual Recipe Recipe { get; set; }
+        public virtual Recipe Recipe { get; set; } = null!;
 
         [Required]
         [ForeignKey("Collection")]
         public int CollectionId { get; set; }
-        public virtual Collection Collection { get; set; }
+        public virtual Collection Collection { get; set; } = null!;
     }
 }
