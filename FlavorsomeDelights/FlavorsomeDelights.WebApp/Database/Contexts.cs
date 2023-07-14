@@ -5,12 +5,12 @@ namespace FlavorsomeDelights.WebApp.Database
 {
     public class Contexts : DbContext
     {
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Collection> Collections { get; set; }
-        public DbSet<Favorite> Favorites { get; set; }
-        public DbSet<Ingredient> Ingredients { get; set; }
-        public DbSet<Recipe> Recipes { get; set; }
-        public DbSet<RecipeIngredient> RecipesIngredients { get; set; }
+        public DbSet<Category> Categories { get; set; } = null!;
+        public DbSet<Collection> Collections { get; set; } = null!;
+        public DbSet<Favorite> Favorites { get; set; } = null!;
+        public DbSet<Ingredient> Ingredients { get; set; } = null!;
+        public DbSet<Recipe> Recipes { get; set; } = null!;
+        public DbSet<RecipeIngredient> RecipesIngredients { get; set; } = null!;
 
     }
 
