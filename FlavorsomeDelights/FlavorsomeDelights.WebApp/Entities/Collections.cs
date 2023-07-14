@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
 
 namespace FlavorsomeDelights.WebApp.Models
 {
@@ -11,6 +10,7 @@ namespace FlavorsomeDelights.WebApp.Models
         public int CollectionId { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string Type { get; set; } = null!;
     }
 }

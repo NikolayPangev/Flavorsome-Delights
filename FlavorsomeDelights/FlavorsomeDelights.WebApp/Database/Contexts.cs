@@ -12,10 +12,11 @@ namespace FlavorsomeDelights.WebApp.Database
         public DbSet<Recipe> Recipes { get; set; } = null!;
         public DbSet<RecipeIngredient> RecipesIngredients { get; set; } = null!;
 
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("SqlDb");
+            //TODO: Read connection string from app config
+            //Pass value to method
+            optionsBuilder.UseSqlServer(new ConfigurationManager().GetConnectionString("Server=.\\SQLEXPRESS;Database=FlavorsomeDelights;Trusted_Connection=True;MultipleActiveResultSets=true"));
         }
     }
     

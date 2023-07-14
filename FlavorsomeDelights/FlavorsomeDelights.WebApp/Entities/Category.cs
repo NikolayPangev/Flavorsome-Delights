@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
 
 namespace FlavorsomeDelights.WebApp.Models
 {
@@ -11,6 +10,7 @@ namespace FlavorsomeDelights.WebApp.Models
         public int CategoryId { get; set; }
 
         [Required]
+        [MaxLength(15)]
         public string Type { get; set; } = null!;
         [Required]
         public string CategoryImageUrl { get; set; } = null!;
