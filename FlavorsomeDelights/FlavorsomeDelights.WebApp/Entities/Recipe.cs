@@ -13,10 +13,12 @@ namespace FlavorsomeDelights.WebApp.Models
         public int RecipeId { get; set; }
 
         [Required]
+        [MaxLength(100)]
         public string Title { get; set; } = null!;
         [Required]
         public string HowToPrepare { get; set; } = null!;
         [Required]
+        [MaxLength(15)]
         public string Complexity { get; set; } = null!;
         [Required]
         public string Serves { get; set; } = null!;

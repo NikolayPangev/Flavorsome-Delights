@@ -10,6 +10,7 @@ namespace FlavorsomeDelights.WebApp.Models
         public int CollectionId { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string Type { get; set; } = null!;
     }
 }

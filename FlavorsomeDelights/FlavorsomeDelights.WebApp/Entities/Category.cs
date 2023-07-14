@@ -10,6 +10,7 @@ namespace FlavorsomeDelights.WebApp.Models
         public int CategoryId { get; set; }
 
         [Required]
+        [MaxLength(15)]
         public string Type { get; set; } = null!;
         [Required]
         public string CategoryImageUrl { get; set; } = null!;
