@@ -13,8 +13,8 @@ namespace FlavorsomeDelights.WebApp.Database
         public DbSet<RecipeIngredient> RecipesIngredients { get; set; } = null!;
 
     }
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer("SqlDb");
-    }
+    }*/
 }
