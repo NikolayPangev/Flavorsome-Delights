@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlavorsomeDelights.WebApp.Migrations
 {
     [DbContext(typeof(Contexts))]
-    [Migration("20230717121658_AddingMoreValuesIntoIngredients")]
-    partial class AddingMoreValuesIntoIngredients
+    [Migration("20230717134150_AddingDataIntoIngredientsAndCategories")]
+    partial class AddingDataIntoIngredientsAndCategories
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
