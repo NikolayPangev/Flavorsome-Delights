@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using FlavorsomeDelights.WebApp.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FlavorsomeDelights.WebApp.Controllers
@@ -8,7 +9,8 @@ namespace FlavorsomeDelights.WebApp.Controllers
         // GET: Recipe
         public ActionResult Index()
         {
-            return View();
+
+            return View(new List<RecipeListItem>());
         }
 
         // GET: Recipe/Details/5
