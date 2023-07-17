@@ -18,6 +18,11 @@ namespace FlavorsomeDelights.WebApp.Controllers
             return View();
         }
 
+        public IActionResult CreateRecipe()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
