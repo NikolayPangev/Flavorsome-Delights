@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlavorsomeDelights.WebApp.Migrations
 {
     [DbContext(typeof(Contexts))]
-    [Migration("20230714140005_InitialDB")]
-    partial class InitialDB
+    [Migration("20230717111446_AddingDataIntoIngredients")]
+    partial class AddingDataIntoIngredients
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -103,9 +103,6 @@ namespace FlavorsomeDelights.WebApp.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
                     b.HasKey("IngredientId");
 
                     b.ToTable("Ingredients");
@@ -160,6 +157,9 @@ namespace FlavorsomeDelights.WebApp.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RecipeIngredientId"));
 
                     b.Property<int>("IngredientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<int>("RecipeId")

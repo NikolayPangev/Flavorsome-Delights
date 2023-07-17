@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FlavorsomeDelights.WebApp.Models
@@ -12,8 +14,7 @@ namespace FlavorsomeDelights.WebApp.Models
         [Required]
         [MaxLength(50)]
         public string Name { get; set; } = null!;
-        [Required]
-        public int Quantity { get; set; }
+      
         [Required]
         public bool IsAllergenic { get; set; }
     }

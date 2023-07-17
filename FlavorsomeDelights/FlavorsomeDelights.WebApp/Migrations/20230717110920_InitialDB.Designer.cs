@@ -3,6 +3,7 @@ using FlavorsomeDelights.WebApp.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlavorsomeDelights.WebApp.Migrations
 {
     [DbContext(typeof(Contexts))]
-    partial class ContextsModelSnapshot : ModelSnapshot
+    [Migration("20230717110920_InitialDB")]
+    partial class InitialDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,9 +43,6 @@ namespace FlavorsomeDelights.WebApp.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.HasIndex("Type")
-                        .IsUnique();
-
                     b.ToTable("Categories");
                 });
 
@@ -60,9 +60,6 @@ namespace FlavorsomeDelights.WebApp.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("CollectionId");
-
-                    b.HasIndex("Type")
-                        .IsUnique();
 
                     b.ToTable("Collections");
                 });
@@ -107,9 +104,6 @@ namespace FlavorsomeDelights.WebApp.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("IngredientId");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
 
                     b.ToTable("Ingredients");
                 });

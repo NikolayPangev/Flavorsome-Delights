@@ -19,5 +19,9 @@ namespace FlavorsomeDelights.WebApp.Models
         [ForeignKey("Ingredient")]
         public int IngredientId { get; set; }
         public virtual Ingredient Ingredient { get; set; } = null!;
+
+        [Required]
+        public int Quantity { get; set; }
+
     }
 }
