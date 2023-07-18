@@ -2,6 +2,8 @@
     ViewData["Title"] = "Recipe Page";
 }
 
+@model FlavorsomeDelights.WebApp.Models.Recipes
+
 <!-- <div class="text-center">
     <h1 class="display-4">Welcome to Flavorsome Delights. Enjoy the variety of recipes.</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
@@ -9,9 +11,20 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Welcome to recipes</h1>
-        <p class="lead">Flavorsome Delights</p>
-        <a> 
+        <div class="recipes">
+            <ul class="recipe-list">
+                @foreach (var recipe in Model.Items)
+                {
+                    <li>
+                        <img class="images-list" src= "@recipe.ImageUrl">
+                        <h3>@recipe.Title</h3>
+                        <p>@recipe.Serves</p>
+                        <p>@recipe.Complexity</p>
+                    </li>
+                }
+            </ul>
+        </div>
+        <a>
             @Html.ActionLink("Create Recipe", "Create", "Recipe")
         </a>
     </div>

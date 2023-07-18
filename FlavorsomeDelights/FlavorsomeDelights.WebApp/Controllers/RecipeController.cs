@@ -10,32 +10,32 @@ namespace FlavorsomeDelights.WebApp.Controllers
     public class RecipeController : Controller
     {
         private readonly Contexts _context;
-        //private readonly RecipeRepository _recipeRepository = null!;
         public RecipeController(Contexts context)
         {
             _context = context;
         }
         // GET: Recipe
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index()
         {
-            return _context.Recipes != null ?
-                        View(await _context.Recipes.ToListAsync()) :
-                        Problem("Entity set 'Contexts.Recipe'  is null.");
-       
-        /*return _context.Movie != null ?
-                    View(await _context.Movie.ToListAsync()) :
-                    Problem("Entity set 'MvcMovieContext.Movie'  is null.");
-    }
-        /*public ActionResult Index()
-    {
-        /* ---
-        List<RecipeListItem> result = new List<RecipeListItem>(); //TODO: RETRIEVE FROM DATABASE
-        Recipes recipes = new Recipes { Items = result };
-        return View(recipes);
-        */
-        /*List<RecipeListItem> recipes = _recipeRepository.GetAllRecipes();
-        return View(recipes);*/
-    }
+            var repository = new RecipeRepository(_context);
+            var result = repository.GetAllRecipes();
+
+            return View(new Recipes { Items = result });
+
+            /*return _context.Movie != null ?
+                        View(await _context.Movie.ToListAsync()) :
+                        Problem("Entity set 'MvcMovieContext.Movie'  is null.");
+        }
+            /*public ActionResult Index()
+        {
+            /* ---
+            List<RecipeListItem> result = new List<RecipeListItem>(); //TODO: RETRIEVE FROM DATABASE
+            Recipes recipes = new Recipes { Items = result };
+            return View(recipes);
+            */
+            /*List<RecipeListItem> recipes = _recipeRepository.GetAllRecipes();
+            return View(recipes);*/
+        }
 
         // GET: Recipe/Details/5
         public async Task<IActionResult> Details(int? id)
