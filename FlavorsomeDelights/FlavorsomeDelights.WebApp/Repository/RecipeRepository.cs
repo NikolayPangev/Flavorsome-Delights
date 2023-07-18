@@ -1,7 +1,29 @@
-﻿namespace FlavorsomeDelights.WebApp.Repository
+﻿using FlavorsomeDelights.WebApp.Database;
+using FlavorsomeDelights.WebApp.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace FlavorsomeDelights.WebApp.Repository
 {
     public class RecipeRepository
     {
-        //public List<Recipes>
+        private readonly Contexts _context;
+
+        public RecipeRepository(Contexts context)
+        {
+            _context = context;
+        }
+
+        public List<RecipeListItem> GetRecipes()
+        {
+            return _context.Recipes.Select(r => new RecipeListItem
+            {
+                Id = r.RecipeId,
+                Title = r.Title,
+                Complexity = r.Complexity,
+                Serves = r.Serves,
+                ImageUrl = r.ImageUrl
+            }).ToList();
+
+        }
     }
 }

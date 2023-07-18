@@ -1,4 +1,5 @@
 ﻿using FlavorsomeDelights.WebApp.Models;
+using FlavorsomeDelights.WebApp.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,12 +7,16 @@ namespace FlavorsomeDelights.WebApp.Controllers
 {
     public class RecipeController : Controller
     {
+        private readonly RecipeRepository _recipeRepository = null!;
         // GET: Recipe
         public ActionResult Index()
         {
-            //var Data = 
+            /*
             List<RecipeListItem> result = new List<RecipeListItem>(); //TODO: RETRIEVE FROM DATABASE
             Recipes recipes = new Recipes { Items = result };
+            return View(recipes);
+            */
+            List<RecipeListItem> recipes = _recipeRepository.GetAllRecipes();
             return View(recipes);
         }
 
