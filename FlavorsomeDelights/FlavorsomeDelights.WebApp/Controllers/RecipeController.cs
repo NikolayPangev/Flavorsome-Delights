@@ -9,6 +9,7 @@ namespace FlavorsomeDelights.WebApp.Controllers
         // GET: Recipe
         public ActionResult Index()
         {
+            //var Data = 
             List<RecipeListItem> result = new List<RecipeListItem>(); //TODO: RETRIEVE FROM DATABASE
             Recipes recipes = new Recipes { Items = result };
             return View(recipes);
