@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlavorsomeDelights.WebApp.Migrations
 {
     [DbContext(typeof(Contexts))]
-    [Migration("20230717111446_AddingDataIntoIngredients")]
-    partial class AddingDataIntoIngredients
+    [Migration("20230718073842_AddingUniqueAttributesAndFillingUpDataIntoTablesToCreateRecipes")]
+    partial class AddingUniqueAttributesAndFillingUpDataIntoTablesToCreateRecipes
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +43,9 @@ namespace FlavorsomeDelights.WebApp.Migrations
 
                     b.HasKey("CategoryId");
 
+                    b.HasIndex("Type")
+                        .IsUnique();
+
                     b.ToTable("Categories");
                 });
 
@@ -60,6 +63,9 @@ namespace FlavorsomeDelights.WebApp.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("CollectionId");
+
+                    b.HasIndex("Type")
+                        .IsUnique();
 
                     b.ToTable("Collections");
                 });
@@ -104,6 +110,9 @@ namespace FlavorsomeDelights.WebApp.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("IngredientId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Ingredients");
                 });

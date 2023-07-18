@@ -21,6 +21,36 @@ namespace FlavorsomeDelights.WebApp.Database
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder
+                .Entity<RecipeIngredient>()
+                .HasIndex(i => i.RecipeIngredientId)
+                .IsUnique();
+
+            modelBuilder
+                .Entity<Recipe>()
+                .HasIndex(i => i.RecipeId)
+                .IsUnique();
+
+            modelBuilder
+                .Entity<Ingredient>()
+                .HasIndex(i => i.IngredientId)
+                .IsUnique();
+
+            modelBuilder
+                .Entity<Favorite>()
+                .HasIndex(i => i.FavoriteId)
+                .IsUnique();
+
+            modelBuilder
+                .Entity<Collection>()
+                .HasIndex(i => i.CollectionId)
+                .IsUnique();
+
+            modelBuilder
+                .Entity<Category>()
+                .HasIndex(i => i.CategoryId)
+                .IsUnique();
+
+            modelBuilder
                 .Entity<Ingredient>()
                 .HasIndex(i => i.Name)
                 .IsUnique();
