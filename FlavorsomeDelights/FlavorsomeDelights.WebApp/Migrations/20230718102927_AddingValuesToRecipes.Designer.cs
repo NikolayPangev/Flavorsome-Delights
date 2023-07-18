@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlavorsomeDelights.WebApp.Migrations
 {
     [DbContext(typeof(Contexts))]
-    [Migration("20230718080955_AddingUniqueAttributesAndFillingUpDataIntoTablesToCreateRecipes")]
-    partial class AddingUniqueAttributesAndFillingUpDataIntoTablesToCreateRecipes
+    [Migration("20230718102927_AddingValuesToRecipes")]
+    partial class AddingValuesToRecipes
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
