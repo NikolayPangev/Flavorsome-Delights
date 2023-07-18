@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
-//using System.Data.Entity;
 
 namespace FlavorsomeDelights.WebApp.Models
 {

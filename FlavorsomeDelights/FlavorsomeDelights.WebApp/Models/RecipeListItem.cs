@@ -2,7 +2,10 @@
 {
     public class RecipeListItem
     {
-        public string Name { get; set; }
-        public string Url { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; } = null!;
+        public string Complexity { get; set; } = null!;
+        public int Serves { get; set; }
+        public string ImageUrl { get; set; } = null!;
     }
 }
