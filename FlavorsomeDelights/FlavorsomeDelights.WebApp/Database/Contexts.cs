@@ -19,12 +19,7 @@ namespace FlavorsomeDelights.WebApp.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder
-                .Entity<RecipeIngredient>()
-                .HasIndex(i => i.RecipeIngredientId)
-                .IsUnique();
-
+            base.OnModelCreating(modelBuilder);         
             modelBuilder
                 .Entity<Recipe>()
                 .HasIndex(i => i.RecipeId)

@@ -1,5 +1,4 @@
 ﻿using FlavorsomeDelights.WebApp.Models;
-using Humanizer;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Hosting;
 using static Azure.Core.HttpHeader;
@@ -25,12 +24,6 @@ namespace FlavorsomeDelights.WebApp.Migrations
                 name: "IX_Ingredients_Name",
                 table: "Ingredients",
                 column: "Name",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RecipesIngredients_RecipeIngredientId",
-                table: "RecipesIngredients",
-                column: "RecipeIngredientId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -92,7 +85,7 @@ namespace FlavorsomeDelights.WebApp.Migrations
                 Set Identity_Insert Categories Off
 
                 Set Identity_Insert Ingredients On
-                Ingredients(IngredientId, Name, IsAllergenic)
+                INSERT INTO Ingredients(IngredientId, Name, IsAllergenic)
                     VALUES
                     (1, 'Strawberries', 0),
                     (2, 'Milk', 1),
@@ -148,7 +141,7 @@ namespace FlavorsomeDelights.WebApp.Migrations
                 six ovenproof ramekins, or put in one baking dish.Top with the remaining mozzarella, then grill for 3 mins, or until the cheese is melted and golden.
                 Season, scatter over the remaining basil and serve with green salad.', 'Beginner', 7, 'https://images.pexels.com/photos/4078190/pexels-photo-4078190.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
 
-                18), 
+                7), 
 	            (2, 'Easy chocolate fudge cake', 'Heat the oven to 180C/160C fan/gas 4. Oil and line the base of two 18cm sandwich tins. Sieve the flour, cocoa powder and 
 
                 bicarbonate of soda into a bowl. Add the caster sugar and mix well.Make a well in the centre and add the golden syrup, eggs, sunflower oil and milk. Beat well
@@ -185,16 +178,16 @@ namespace FlavorsomeDelights.WebApp.Migrations
                 Set Identity_Insert Recipes off
 
                 Set Identity_Insert RecipesIngredients On
-                INSERT INTO RecipesIngredients(RecipeId, IngredientId, Quantity)
+                INSERT INTO RecipesIngredients(RecipeIngredientId, RecipeId, IngredientId, Quantity)
                 VALUES
-                (1, 23, 0),
-                (1, 24, 0),
-                (1, 2, 0),
-                (2, 16, 0),
-                (2, 22, 0),
-                (3, 10, 0),
-                (4, 16, 0),
-                (4, 25, 0);
+                (1, 1, 23, 0),
+                (2, 1, 24, 0),
+                (3, 1, 2, 0),
+                (4, 2, 16, 0),
+                (5, 2, 22, 0),
+                (6, 3, 10, 0),
+                (7, 4, 16, 0),
+                (8, 4, 25, 0);
                 Set Identity_Insert RecipesIngredients Off"
             );
         }
@@ -202,10 +195,6 @@ namespace FlavorsomeDelights.WebApp.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropIndex(
-                name: "IX_RecipesIngredients_RecipeIngredientId",
-                table: "RecipesIngredients");
-
             migrationBuilder.DropIndex(
                 name: "IX_Recipes_RecipeId",
                 table: "Recipes");

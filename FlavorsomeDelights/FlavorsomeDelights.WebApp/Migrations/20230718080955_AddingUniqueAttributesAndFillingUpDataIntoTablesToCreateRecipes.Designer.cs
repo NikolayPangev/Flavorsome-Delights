@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlavorsomeDelights.WebApp.Migrations
 {
     [DbContext(typeof(Contexts))]
-    [Migration("20230718073842_AddingUniqueAttributesAndFillingUpDataIntoTablesToCreateRecipes")]
+    [Migration("20230718080955_AddingUniqueAttributesAndFillingUpDataIntoTablesToCreateRecipes")]
     partial class AddingUniqueAttributesAndFillingUpDataIntoTablesToCreateRecipes
     {
         /// <inheritdoc />
@@ -43,6 +43,9 @@ namespace FlavorsomeDelights.WebApp.Migrations
 
                     b.HasKey("CategoryId");
 
+                    b.HasIndex("CategoryId")
+                        .IsUnique();
+
                     b.HasIndex("Type")
                         .IsUnique();
 
@@ -63,6 +66,9 @@ namespace FlavorsomeDelights.WebApp.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("CollectionId");
+
+                    b.HasIndex("CollectionId")
+                        .IsUnique();
 
                     b.HasIndex("Type")
                         .IsUnique();
@@ -88,6 +94,9 @@ namespace FlavorsomeDelights.WebApp.Migrations
 
                     b.HasIndex("CollectionId");
 
+                    b.HasIndex("FavoriteId")
+                        .IsUnique();
+
                     b.HasIndex("RecipeId");
 
                     b.ToTable("Favorites");
@@ -110,6 +119,9 @@ namespace FlavorsomeDelights.WebApp.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("IngredientId");
+
+                    b.HasIndex("IngredientId")
+                        .IsUnique();
 
                     b.HasIndex("Name")
                         .IsUnique();
@@ -153,6 +165,9 @@ namespace FlavorsomeDelights.WebApp.Migrations
                     b.HasKey("RecipeId");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("RecipeId")
+                        .IsUnique();
 
                     b.ToTable("Recipes");
                 });
