@@ -13,7 +13,7 @@ namespace FlavorsomeDelights.WebApp.Repository
             _context = context;
         }
 
-        public List<RecipeListItem> GetRecipes()
+        public List<RecipeListItem> GetAllRecipes()
         {
             return _context.Recipes.Select(r => new RecipeListItem
             {
