@@ -1,29 +1,58 @@
-﻿using FlavorsomeDelights.WebApp.Models;
+﻿using FlavorsomeDelights.WebApp.Database;
+using FlavorsomeDelights.WebApp.Models;
 using FlavorsomeDelights.WebApp.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FlavorsomeDelights.WebApp.Controllers
 {
     public class RecipeController : Controller
     {
-        private readonly RecipeRepository _recipeRepository = null!;
-        // GET: Recipe
-        public ActionResult Index()
+        private readonly Contexts _context;
+        //private readonly RecipeRepository _recipeRepository = null!;
+        public RecipeController(Contexts context)
         {
-            /*
-            List<RecipeListItem> result = new List<RecipeListItem>(); //TODO: RETRIEVE FROM DATABASE
-            Recipes recipes = new Recipes { Items = result };
-            return View(recipes);
-            */
-            List<RecipeListItem> recipes = _recipeRepository.GetAllRecipes();
-            return View(recipes);
+            _context = context;
         }
+        // GET: Recipe
+        public async Task<IActionResult> Index(string searchString)
+        {
+            return _context.Recipes != null ?
+                        View(await _context.Recipes.ToListAsync()) :
+                        Problem("Entity set 'Contexts.Recipe'  is null.");
+       
+        /*return _context.Movie != null ?
+                    View(await _context.Movie.ToListAsync()) :
+                    Problem("Entity set 'MvcMovieContext.Movie'  is null.");
+    }
+        /*public ActionResult Index()
+    {
+        /* ---
+        List<RecipeListItem> result = new List<RecipeListItem>(); //TODO: RETRIEVE FROM DATABASE
+        Recipes recipes = new Recipes { Items = result };
+        return View(recipes);
+        */
+        /*List<RecipeListItem> recipes = _recipeRepository.GetAllRecipes();
+        return View(recipes);*/
+    }
 
         // GET: Recipe/Details/5
-        public ActionResult Details(int id)
+        public async Task<IActionResult> Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var recipes = await _context.Recipes
+                .FirstOrDefaultAsync(r => r.RecipeId == id);
+            if (recipes == null)
+            {
+                return NotFound();
+            }
+
+            return View(recipes);
         }
 
         // GET: Recipe/Create

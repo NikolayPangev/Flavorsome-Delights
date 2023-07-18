@@ -22,8 +22,8 @@ namespace FlavorsomeDelights.WebApp.Repository
                 Complexity = r.Complexity,
                 Serves = r.Serves,
                 ImageUrl = r.ImageUrl
-            }).ToList();
-
+            }
+            ).ToList();
         }
     }
 }
