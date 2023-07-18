@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlavorsomeDelights.WebApp.Migrations
 {
     [DbContext(typeof(Contexts))]
-    [Migration("20230717111446_AddingDataIntoIngredients")]
-    partial class AddingDataIntoIngredients
+    [Migration("20230718080955_AddingUniqueAttributesAndFillingUpDataIntoTablesToCreateRecipes")]
+    partial class AddingUniqueAttributesAndFillingUpDataIntoTablesToCreateRecipes
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +43,12 @@ namespace FlavorsomeDelights.WebApp.Migrations
 
                     b.HasKey("CategoryId");
 
+                    b.HasIndex("CategoryId")
+                        .IsUnique();
+
+                    b.HasIndex("Type")
+                        .IsUnique();
+
                     b.ToTable("Categories");
                 });
 
@@ -60,6 +66,12 @@ namespace FlavorsomeDelights.WebApp.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("CollectionId");
+
+                    b.HasIndex("CollectionId")
+                        .IsUnique();
+
+                    b.HasIndex("Type")
+                        .IsUnique();
 
                     b.ToTable("Collections");
                 });
@@ -81,6 +93,9 @@ namespace FlavorsomeDelights.WebApp.Migrations
                     b.HasKey("FavoriteId");
 
                     b.HasIndex("CollectionId");
+
+                    b.HasIndex("FavoriteId")
+                        .IsUnique();
 
                     b.HasIndex("RecipeId");
 
@@ -104,6 +119,12 @@ namespace FlavorsomeDelights.WebApp.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("IngredientId");
+
+                    b.HasIndex("IngredientId")
+                        .IsUnique();
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Ingredients");
                 });
@@ -144,6 +165,9 @@ namespace FlavorsomeDelights.WebApp.Migrations
                     b.HasKey("RecipeId");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("RecipeId")
+                        .IsUnique();
 
                     b.ToTable("Recipes");
                 });
