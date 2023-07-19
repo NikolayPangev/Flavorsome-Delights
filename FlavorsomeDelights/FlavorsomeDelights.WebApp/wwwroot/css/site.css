@@ -33,3 +33,22 @@ a.nav-link {
     width:auto;
     height:56px;
 }
+
+img.images-list {
+    width: auto;
+    height: 200px;
+    border-radius: 5px
+}
+
+.recipe-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.card {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 20rem;
+}

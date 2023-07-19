@@ -62,10 +62,7 @@ namespace FlavorsomeDelights.WebApp.Controllers
         // GET: Recipe/Create
         public ActionResult Create()
         {
-            /*var repository = new RecipeRepository(_context);  //TODO: continue creating
-            var result = repository.CreateNewRecipe();*/
-
-            return View();
+            return View(new RecipeDetailedItem());
         }
 
         // POST: Recipe/Create
