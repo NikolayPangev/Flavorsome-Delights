@@ -2,11 +2,14 @@
 {
     public class RecipeDetailedItem
     {
-        public int Id { get; set; }
-        public string HowToPrepare{ get; set; } = null!;
+        public int RecipeId { get; set; }
         public string Title { get; set; } = null!;
+        public List<Ingredient> Ingredients { get; set; } = null!;
+        
+        public string HowToPrepare{ get; set; } = null!;
         public string Complexity { get; set; } = null!;
         public int Serves { get; set; }
         public string ImageUrl { get; set; } = null!;
+
     }
 }

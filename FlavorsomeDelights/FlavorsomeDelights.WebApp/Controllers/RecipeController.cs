@@ -38,7 +38,7 @@ namespace FlavorsomeDelights.WebApp.Controllers
         }
 
         // GET: Recipe/Details/5
-        public async Task<IActionResult> Details()
+        public async Task<IActionResult> Details(int? id)
         {
             var repository = new RecipeRepository(_context);
             var result = repository.GetRecipeDetails();
@@ -62,6 +62,9 @@ namespace FlavorsomeDelights.WebApp.Controllers
         // GET: Recipe/Create
         public ActionResult Create()
         {
+            /*var repository = new RecipeRepository(_context);  //TODO: continue creating
+            var result = repository.CreateNewRecipe();*/
+
             return View();
         }
 

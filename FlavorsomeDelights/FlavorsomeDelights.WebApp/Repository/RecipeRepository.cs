@@ -54,15 +54,23 @@ namespace FlavorsomeDelights.WebApp.Repository
         {
             return _context.Recipes.Select(r => new RecipeDetailedItem
             {
-                Id = r.RecipeId,
-                HowToPrepare = r.HowToPrepare,
+                RecipeId = r.RecipeId,
                 Title = r.Title,
+                
+                HowToPrepare = r.HowToPrepare,               
                 Complexity = r.Complexity,
                 Serves = r.Serves,
                 ImageUrl = r.ImageUrl
             }
             ).ToList();
         }
+        public void CreateNewRecipe()
+        {
+            Recipe newRecipe = new Recipe();  //TODO: add values?
+            _context.Recipes.Add(newRecipe);
+            _context.SaveChanges();
+        }
+
+        //TODO: Add DeleteRacipe()
     }
-    
 }
