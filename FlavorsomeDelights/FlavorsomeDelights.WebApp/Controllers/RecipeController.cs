@@ -41,9 +41,9 @@ namespace FlavorsomeDelights.WebApp.Controllers
         public async Task<IActionResult> Details()
         {
             var repository = new RecipeRepository(_context);
-            var result = repository.GetAllRecipes();
+            var result = repository.GetRecipeDetails();
 
-            return View(new Recipes { Items = result });
+            return View(new Recipes { RecipeDetailedItems = result });
             /*if (id == null)
             {
                 return NotFound();
