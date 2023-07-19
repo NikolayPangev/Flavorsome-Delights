@@ -14,21 +14,20 @@
         <div class="recipes">
             <div class="recipe-list">
                 @foreach (var recipe in Model.Items)
-                {
+                {                    
                     <div class="card">
+                        <a class="card-link" href='@Url.Action("Details", "RecipeController")'>
                         <img class="images-list" src="@recipe.ImageUrl">
-                        <div class="m-3 text-center">
+                        <div class="p-3 text-center">
                             <h3>@recipe.Title</h3>
                             <p>Serves: @recipe.Serves</p>
                             <p>Complexity: @recipe.Complexity</p>
                             @Html.HiddenFor(x => recipe.Id)
                         </div>
+                        </a>
                     </div>
                 }
             </div>
         </div>
-        <a>
-            @Html.ActionLink("Create Recipe", "Create", "Recipe")
-        </a>
     </div>
 </div>
