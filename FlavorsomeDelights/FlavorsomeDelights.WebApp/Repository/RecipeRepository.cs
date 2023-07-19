@@ -75,6 +75,24 @@ namespace FlavorsomeDelights.WebApp.Repository
             _context.SaveChanges();
         }
 
-        //TODO: Add DeleteRacipe()
+        public async void DeleteRecipe(int id)
+        {
+            var recipeForDelete = await _context.Recipes.FindAsync(id);
+            if(recipeForDelete != null)
+            {
+                _context.Recipes.Remove(recipeForDelete);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public void EditRecipe(int id)
+        {
+            var recipeForDelete = _context.Recipes.Find(id);
+            if (recipeForDelete != null)
+            {
+                _context.Recipes.Remove(recipeForDelete);
+                _context.SaveChanges();
+            }
+        }
     }
 }

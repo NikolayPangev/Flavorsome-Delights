@@ -1,4 +1,5 @@
-﻿using FlavorsomeDelights.WebApp.Database;
+﻿using Azure.Identity;
+using FlavorsomeDelights.WebApp.Database;
 using FlavorsomeDelights.WebApp.Models;
 using FlavorsomeDelights.WebApp.Repository;
 using Microsoft.AspNetCore.Http;
@@ -21,20 +22,6 @@ namespace FlavorsomeDelights.WebApp.Controllers
             var result = repository.GetAllRecipes();
 
             return View(new Recipes { Items = result });
-
-            /*return _context.Movie != null ?
-                        View(await _context.Movie.ToListAsync()) :
-                        Problem("Entity set 'MvcMovieContext.Movie'  is null.");
-        }
-            /*public ActionResult Index()
-        {
-            /* ---
-            List<RecipeListItem> result = new List<RecipeListItem>(); //TODO: RETRIEVE FROM DATABASE
-            Recipes recipes = new Recipes { Items = result };
-            return View(recipes);
-            */
-            /*List<RecipeListItem> recipes = _recipeRepository.GetAllRecipes();
-            return View(recipes);*/
         }
 
         // GET: Recipe/Details/5
@@ -68,14 +55,27 @@ namespace FlavorsomeDelights.WebApp.Controllers
         }
 
         // GET: Recipe/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
+        public async Task<IActionResult> Edit(int id)   //TODO: Check if it works correctly
+        {            
+            var repository = new RecipeRepository(_context);    //TODO:neccessary? -> if(id!=0); if(result!=null)...
+           
+            if (id == 0)
+            {
+                return NotFound();
+            }
+
+            var recipe = await _context.Recipes.FindAsync(id);
+            if (recipe == null)
+            {
+                return NotFound();
+            }
+
+            return View(recipe);
         }
 
         // POST: Recipe/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]      //TODO: continue
         public ActionResult Edit(int id, IFormCollection collection)
         {
             try
@@ -89,24 +89,31 @@ namespace FlavorsomeDelights.WebApp.Controllers
         }
 
         // GET: Recipe/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            return View();
+            if (id == 0)
+            {
+                return NotFound();
+            }
+
+            var recipe = await _context.Recipes
+                .FirstOrDefaultAsync(r => r.RecipeId == id);
+            if (recipe == null)
+            {
+                return NotFound();
+            }
+            return View(recipe);
         }
 
         // POST: Recipe/Delete/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        [ValidateAntiForgeryToken]  //TODO: check if it works
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var repository = new RecipeRepository(_context);
+            repository.DeleteRecipe(id);
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
