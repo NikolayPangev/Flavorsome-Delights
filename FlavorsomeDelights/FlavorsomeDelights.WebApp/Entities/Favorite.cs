@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FlavorsomeDelights.WebApp.Models
+namespace FlavorsomeDelights.WebApp.Entities
 {
     public class Favorite
     {

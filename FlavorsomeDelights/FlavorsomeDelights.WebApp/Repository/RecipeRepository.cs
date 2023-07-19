@@ -1,6 +1,6 @@
 ﻿using FlavorsomeDelights.WebApp.Database;
+using FlavorsomeDelights.WebApp.Entities;
 using FlavorsomeDelights.WebApp.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace FlavorsomeDelights.WebApp.Repository
 {
@@ -29,7 +29,7 @@ namespace FlavorsomeDelights.WebApp.Repository
         public List<RecipeListItem> GetAllRecipesByComplexity(string chosenDifficulty)
         {
             return _context.Recipes.Where(r => r.Complexity == chosenDifficulty).Select(r => new RecipeListItem
-        {
+            {
                 Id = r.RecipeId,
                 Title = r.Title,
                 Complexity = r.Complexity,
@@ -50,19 +50,23 @@ namespace FlavorsomeDelights.WebApp.Repository
             }
             ).ToList();
         }
-        public List<RecipeDetailedItem> GetRecipeDetails()
+        public RecipeDetailedItem GetRecipeDetails(int id)
         {
-            return _context.Recipes.Select(r => new RecipeDetailedItem
+            return _context.Recipes.Where(x => x.RecipeId == id).Select(r => new RecipeDetailedItem
             {
                 RecipeId = r.RecipeId,
                 Title = r.Title,
-                
-                HowToPrepare = r.HowToPrepare,               
+                Ingredients = r.Ingredients.Select(i => new IngredientItem
+                {
+                    Id = i.IngredientId,
+                    Name = i.Ingredient.Name,
+                    Quantity = i.Quantity,
+                }).ToList(),
+                HowToPrepare = r.HowToPrepare,
                 Complexity = r.Complexity,
                 Serves = r.Serves,
                 ImageUrl = r.ImageUrl
-            }
-            ).ToList();
+            }).Single();
         }
         public void CreateNewRecipe()
         {

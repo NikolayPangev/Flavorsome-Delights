@@ -1,4 +1,4 @@
-﻿using FlavorsomeDelights.WebApp.Models;
+﻿using FlavorsomeDelights.WebApp.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace FlavorsomeDelights.WebApp.Database

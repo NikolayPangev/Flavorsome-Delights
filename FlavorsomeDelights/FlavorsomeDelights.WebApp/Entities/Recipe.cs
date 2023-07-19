@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace FlavorsomeDelights.WebApp.Models
+namespace FlavorsomeDelights.WebApp.Entities
 {
     public class Recipe
     {
@@ -29,5 +29,7 @@ namespace FlavorsomeDelights.WebApp.Models
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
         public Category Category { get; set; } = null!;
+
+        public List<RecipeIngredient> Ingredients { get; set; }
     }
 }

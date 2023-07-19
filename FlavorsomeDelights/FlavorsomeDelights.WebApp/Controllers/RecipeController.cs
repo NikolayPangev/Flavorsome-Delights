@@ -38,25 +38,12 @@ namespace FlavorsomeDelights.WebApp.Controllers
         }
 
         // GET: Recipe/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
             var repository = new RecipeRepository(_context);
-            var result = repository.GetRecipeDetails();
+            var result = repository.GetRecipeDetails(id);
 
-            return View(new Recipes { RecipeDetailedItems = result });
-            /*if (id == null)
-            {
-                return NotFound();
-            }
-
-            var recipes = await _context.Recipes
-                .FirstOrDefaultAsync(r => r.RecipeId == id);
-            if (recipes == null)
-            {
-                return NotFound();
-            }
-
-            return View(recipes);*/
+            return View(result);
         }
 
         // GET: Recipe/Create
