@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Create New Recipe Page";
 }
-@model IEnumerable<FlavorsomeDelights.WebApp.Models.RecipeDetails>
+@model FlavorsomeDelights.WebApp.Models.RecipeDetails
 <!-- <div class="text-center">
     <h1 class="display-4">Welcome to Flavorsome Delights. Enjoy the variety of recipes.</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
@@ -41,13 +41,13 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @*@foreach (var item in Model.Ingredients)
         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
-               @* <td>
+               <td>
                     @Html.DisplayFor(modelItem => item.ReleaseDate)
                 </td>
                 <td>
@@ -55,13 +55,13 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Price)
-                </td>*@
+                </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
-        }
+        }*@
     </tbody>
 </table>

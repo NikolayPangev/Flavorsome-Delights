@@ -58,7 +58,7 @@ namespace FlavorsomeDelights.WebApp.Controllers
         // GET: Recipe/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new RecipeDetails());
         }
 
         // POST: Recipe/Create
