@@ -2,92 +2,48 @@
     ViewData["Title"] = "Create New Recipe Page";
 }
 @model FlavorsomeDelights.WebApp.Models.RecipeDetailedItem
-<!-- <div class="text-center">
-    <h1 class="display-4">Welcome to Flavorsome Delights. Enjoy the variety of recipes.</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>-->
 
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class="display-4">Create new recipe</h1>
-    </div>
-</div>
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
-<table class="table">
-    <!--<thead>
-        <tr>
-            <th>
-    @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-    @Html.DisplayNameFor(model => model.HowToPrepare)
-            </th>
-            <th>
-    @Html.DisplayNameFor(model => model.Complexity)
-            </th>
-            <th>
-    @Html.DisplayNameFor(model => model.Serves)
-            </th>
-            <th>
-    @Html.DisplayNameFor(model => model.ImageUrl)
-            </th>
-            <th></th>
-        </tr>
-    </thead> -->
-    <tbody>
-        @*@foreach (var item in Model.Ingredients)
-        {
-        <tr>
-        <td>
-        @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-        @Html.DisplayFor(modelItem => item.ReleaseDate)
-        </td>
-        <td>
-        @Html.DisplayFor(modelItem => item.Genre)
-        </td>
-        <td>
-        @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-        </td>
-        </tr>
-        }*@
+    .jumbotron {
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+</style>
 
-        <form method="post" style="max-width: 100px; margin: 0 auto; display: block;">
-            <div style="margin-bottom: 15px;">
-                <label for="RecipeTitle">Recipe Title:</label>
-                <input type="text" id="RecipeTitle" name="RecipeTitle" style="width: 100%; padding: 5px;">
-            </div>
-            <div style="margin-bottom: 15px;">
-                <label for="HowToPrepare">How to prepare:</label>
-                <br />
-                <textarea id="HowToPrepare" name="HowToPrepare" style="width: 100%; height: 150px; padding: 5px;"></textarea>
-            </div>
-            <div style="margin-bottom: 15px;">
-                <label for="Complexity">Complexity:</label>
-                <select id="Complexity" name="Complexity" style="width: 100%; padding: 5px;">
-                    <option value="Beginner">Beginner</option>
-                    <option value="Intermediate">Intermediate</option>
-                    <option value="Advanced">Advanced</option>
-                </select>
-            </div>
-            <div style="margin-bottom: 15px;">
-                <label for="Serves">Serves:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-                <input type="number" id="Serves" name="Serves" style="width: 100%; padding: 5px;">
-            </div>
-            <div style="margin-bottom: 15px;">
-                <label for="ImageUrl">Image URL:&nbsp</label>
-                <input type="url" id="ImageUrl" name="ImageUrl" style="width: 100%; padding: 5px;">
-            </div>
-            <div style="text-align: center;">
+<div class="container" style="text-align: center;">
+    <div class="jumbotron jumbotron-fluid">
+        <form method="post" style="max-width: 400px; margin: 0 auto;">
+            <label for="RecipeTitle">Recipe Title:</label>
+            <input type="text" id="RecipeTitle" name="RecipeTitle" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+
+            <label for="HowToPrepare">How to prepare:</label><br />
+            <textarea id="HowToPrepare" name="HowToPrepare" style="width: 100%; height: 150px; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+
+            <label for="Complexity">Complexity:</label>
+            <select id="Complexity" name="Complexity" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
+
+            <label for="Serves">Serves:</label>
+            <input type="number" id="Serves" name="Serves" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+
+            <label for="ImageUrl">Image URL:</label>
+            <input type="url" id="ImageUrl" name="ImageUrl" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+
+            <div>
                 <button type="submit" class="btn btn-outline-dark" style="padding: 10px 20px;">Submit</button>
             </div>
         </form>
-
-    </tbody>
-</table>
+    </div>
+</div>
