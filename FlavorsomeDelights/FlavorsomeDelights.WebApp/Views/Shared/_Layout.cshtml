@@ -47,9 +47,25 @@
 
     <footer class="border-top footer text-muted">
         <div class="containerfooter">
-            &copy; 2023 - Nicole Metodieva, Nikolay Pangev, Ralitsa Stancheva, Stoyan Mavrodiev - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            
+            <div class="social-icons" style="display: flex; align-items: center; justify-content:left">
+                @*<span class="material-symbols-outlined" style="font-size: 24px; margin-right: 10px; color: #fff;">
+                link
+                </span>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i>ff</a>
+                <br />
+                <span class="material-symbols-outlined">
+                link
+                </span>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i>ii</a>
+                <br />*@
+
+            </div>
+
+            &copy; 2023 - Nicole Metodieva, Nikolay Pangev, Ralitsa Stancheva, Stoyan Mavrodiev -
+            <a class="privacy-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
         </div>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

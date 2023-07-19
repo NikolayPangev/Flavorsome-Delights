@@ -25,6 +25,9 @@ body {
 .containerfooter {
     background-color: #9c7d4f;
     color: white;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -70,11 +73,34 @@ img.images-list {
         color: #db793b;
     }
 
+.privacy-link {
+    text-decoration: none;
+    color: #404040;
+}
+
+    .privacy-link:hover {
+        color: #db793b;
+    }
+
 .details-img {
     height: 30rem;
     max-width: 30rem;
+    border-radius: 5px;
 }
 
-.preparation{
-    
+.preparation {
+}
+
+.text-formatting {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+    color: #2d2f31;
+    background-color: #ffffff;
+    justify-content: center;
+    text-align: justify;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
