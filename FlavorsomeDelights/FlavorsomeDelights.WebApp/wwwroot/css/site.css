@@ -79,7 +79,7 @@ img.images-list {
 }
 
     .privacy-link:hover {
-        color: #db793b;
+        color: #deb373;
     }
 
 .details-img {
@@ -104,3 +104,5 @@ img.images-list {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+
