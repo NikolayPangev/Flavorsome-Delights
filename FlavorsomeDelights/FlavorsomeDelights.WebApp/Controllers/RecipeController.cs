@@ -108,10 +108,11 @@ namespace FlavorsomeDelights.WebApp.Controllers
         // POST: Recipe/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]  //TODO: check if it works
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(IFormCollection collection)
         {
+            string idAsString = collection["recipe.id"];
             var repository = new RecipeRepository(_context);
-            repository.DeleteRecipe(id);
+            repository.DeleteRecipe(int.Parse(idAsString));
 
             return RedirectToAction(nameof(Index));
         }

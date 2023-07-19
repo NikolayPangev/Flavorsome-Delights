@@ -1,7 +1,37 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+@model FlavorsomeDelights.WebApp.Models.RecipeDetailedItem
+
+<div class="d-flex">
+    <div>
+        <img class="details-img" src="@Model.ImageUrl" />
+        <p>
+            <span class="material-symbols-outlined">
+                soup_kitchen
+            </span>
+            Complexity: @Model.Complexity
+        </p>
+        <p>
+            <span class="material-symbols-outlined">
+                ramen_dining
+            </span>
+            Serves: @Model.Serves
+        </p>
+    </div>
+    <div class="m-3">
+        <h1>@Model.Title</h1>
+        <p class="">@Model.HowToPrepare</p>
+        <p>
+            Why do we use it?
+            It is a long established fact that a
+            reader will be distracted by the readable
+            content of a page when looking at its layout.
+            The point of using Lorem Ipsum is that it has a more-or-less normal
+            distribution of letters, as opposed to using 'Content here, content here',
+            making it look like readable English. Many desktop publishing packages and
+        </p>
+    </div>
+</div>
 
