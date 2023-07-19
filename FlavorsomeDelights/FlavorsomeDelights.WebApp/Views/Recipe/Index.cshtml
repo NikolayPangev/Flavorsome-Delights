@@ -16,7 +16,7 @@
                 @foreach (var recipe in Model.Items)
                 {                    
                     <div class="card">
-                        <a class="card-link" href='@Url.Action("Details", "RecipeController")'>
+                        <a class="card-link" href='@Url.Action("Details", "Recipe")'>
                         <img class="images-list" src="@recipe.ImageUrl">
                         <div class="p-3 text-center">
                             <h3>@recipe.Title</h3>
