@@ -1,6 +1,6 @@
 ﻿namespace FlavorsomeDelights.WebApp.Models
 {
-    public class RecipeDetails
+    public class RecipeDetailedItem
     {
         public int Id { get; set; }
         public string HowToPrepare{ get; set; } = null!;
