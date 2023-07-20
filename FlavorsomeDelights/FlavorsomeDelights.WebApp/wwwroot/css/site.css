@@ -24,14 +24,14 @@ body {
     background-size: cover;
 }
 
-div.fullscreen-image {
-    margin: 0;
-    width: 100%;
+.fullscreen-image {
+    background-image: url('../img/welcomephoto.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: -1rem;
 }
-
-    div.fullscreen-image img {
-        width: 100%;
-    }
 
 .containerfooter {
     background-color: #0000008c;
