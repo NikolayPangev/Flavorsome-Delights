@@ -22,6 +22,7 @@
             Stack<string> stackForStepsForPreparation = new Stack<string>();
         }
 
+        <h6>How to prepare:</h6>
         @foreach (var step in @Model.HowToPrepare.Split("."))
         {
             stackForStepsForPreparation.Push(step.Trim());
@@ -39,6 +40,13 @@
                 <li style="text-align:justify">
                     @steps[i].Trim()
                 </li>
+            }
+        </ul>
+        <h6>Ingredients:</h6>
+        <ul>
+           @foreach (var ingredient in Model.Ingredients)
+            {
+                <li>@ingredient.Name -  @ingredient.Quantity</li>
             }
         </ul>
     </div>
