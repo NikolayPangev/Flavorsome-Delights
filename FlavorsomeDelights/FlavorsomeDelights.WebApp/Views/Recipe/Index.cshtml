@@ -10,18 +10,28 @@
             <div class="recipe-list">
                 @foreach (var recipe in Model.Items)
                 {
-                    <div class="card">
-                        <a class="card-link" href='@Url.Action("Details", "Recipe", new { id = recipe.Id})'>
-                            <img class="images-list" src="@recipe.ImageUrl">
-                            <div class="p-3 text-center">
-                                <h3>@recipe.Title</h3>
-                                <p>Serves: @recipe.Serves</p>
-                                <p>Complexity: @recipe.Complexity</p>
-                            </div>
-                        </a>
+                    
+                        <div class="card">
+
+                            <a class="card-link" href='@Url.Action("Details", "Recipe", new { id = recipe.Id})'>
+                           
+                                <img class="images-list" src="@recipe.ImageUrl">
+                                
+                                <div class="p-3 text-center">
+                                    <h3>@recipe.Title</h3>
+                                    <p>Serves: @recipe.Serves</p>
+                                    <p>Complexity: @recipe.Complexity</p>
+                                </div>
+                            </a>
+                        </div>
+                 
+
+
+                    <div class="delete-button">
                         @using (Html.BeginForm("DeleteConfirmed", "Recipe", FormMethod.Post, new { id = recipe.Id }))
                         {
-                            @Html.HiddenFor(x=> recipe.Id);
+                            @Html.HiddenFor(x=> recipe.Id)
+                            ;
                             <input type='Submit' class="material-symbols-outlined" value="delete" />
                         }
                     </div>
