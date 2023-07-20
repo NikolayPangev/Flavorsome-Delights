@@ -1,38 +1,83 @@
 ﻿@{
     ViewData["Title"] = "Create New Recipe Page";
 }
-@model FlavorsomeDelights.WebApp.Models.RecipeDetailedItem
+@model FlavorsomeDelights.WebApp.Models.RecipeCreateItem
 
-<div class="container-create-form" style="text-align: center;">
+<style>
+    .jumbotron-create-form {
+        width: 90%;
+    }
+
+    .form-create-recipe {
+        max-width: 120%;
+        margin: 0 auto;
+    }
+
+    .form-create-recipe {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .howToPrepare-text-area {
+        /*height: 150px;*/
+    }
+
+    .form-create-recipe label {
+        font-weight: bold;
+    }
+
+    .form-create-recipe text {
+        /*width: 80%;*/
+    }
+</style>
+
+<div class="container-create-form mt-5" style="text-align: center;">
+
     <div class="jumbotron-create-form jumbotron-fluid">
-        <form method="post" style="max-width: 400px; margin: 0 auto;">
-            <label for="RecipeTitle">Recipe Title:</label>
-            <input type="text" id="RecipeTitle" name="RecipeTitle" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc;
-            border-radius: 5px;">
+        <div class="form-create-recipe">
+            @using (Html.BeginForm("Create", "Recipe", FormMethod.Post, new { title = Model.Title }))
+            {
+                @Html.HiddenFor(recipe => recipe.RecipeId)
 
-            <label for="HowToPrepare">How to prepare:</label><br />
-            <textarea id="HowToPrepare" name="HowToPrepare" style="width: 100%; height: 150px; padding: 10px; margin-bottom: 10px;
-            border: 1px solid #ccc; border-radius: 5px;"></textarea>
+                @Html.LabelFor(recipe => recipe.Title, "Recipe Title:")
+                <br />
+                @Html.TextBoxFor(recipe=> recipe.Title, htmlAttributes: new {style="width: 25rem; max-width: 100%;"})
+                <br />
 
-            <label for="Complexity">Complexity:</label>
-            <select id="Complexity" name="Complexity" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc;
-            border-radius: 5px;">
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Advanced">Advanced</option>
-            </select>
+                @Html.LabelFor(recipe => recipe.HowToPrepare, "How to prepare:")
+                <br />
+                @Html.TextAreaFor(recipe => recipe.HowToPrepare, htmlAttributes: new {style="width: 25rem; max-width: 100%;" })
 
-            <label for="Serves">Serves:</label>
-            <input type="number" id="Serves" name="Serves" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc;
-            border-radius: 5px;">
+                <br />
 
-            <label for="ImageUrl">Image URL:</label>
-            <input type="url" id="ImageUrl" name="ImageUrl" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc;
-            border-radius: 5px;">
 
-            <div>
+                @Html.LabelFor(recipe => recipe.Complexity, "Complexity:")
+                <br />
+                @Html.DropDownListFor(recipe => recipe.Complexity, ViewBag.ComplexityTypes as List<SelectListItem>, htmlAttributes: new {style="width: 25rem; max-width: 100%;"})
+                <br />
+
+                @Html.LabelFor(recipe => recipe.CategoryId, "Category:")
+                <br />
+                @Html.DropDownListFor(recipe => recipe.CategoryId, (ViewBag.Categories as IEnumerable<SelectListItem>), htmlAttributes: new {style="width: 25rem; max-width: 100%;" })
+
+                <br />
+                @Html.LabelFor(recipe => recipe.Serves, "Serves:")
+                <br />
+                @Html.TextBoxFor(recipe => recipe.Serves, htmlAttributes: new {style="width: 25rem; max-width: 100%;" })
+
+                <br />
+                @Html.LabelFor(recipe => recipe.ImageUrl, "Image URL:")
+                <br />
+                @Html.TextBoxFor(recipe=> recipe.ImageUrl, htmlAttributes: new {style="width: 25rem; max-width: 100%;" })
+
+                <br />
+                <br />
                 <button type="submit" class="btn btn-outline-dark" style="padding: 10px 20px;">Submit</button>
-            </div>
-        </form>
+            }
+
+        </div>
     </div>
 </div>

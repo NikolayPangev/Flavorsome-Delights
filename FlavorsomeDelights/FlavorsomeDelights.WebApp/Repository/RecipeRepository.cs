@@ -68,9 +68,17 @@ namespace FlavorsomeDelights.WebApp.Repository
                 ImageUrl = r.ImageUrl
             }).Single();
         }
-        public void CreateNewRecipe()
+        public void CreateNewRecipe(RecipeCreateItem recipe)
         {
-            Recipe newRecipe = new Recipe();  //TODO: add values?
+            Recipe newRecipe = new Recipe
+            {
+                Title = recipe.Title,
+                HowToPrepare = recipe.HowToPrepare,
+                Complexity = recipe.Complexity,
+                Serves = recipe.Serves,
+                ImageUrl = recipe.ImageUrl,
+                CategoryId = recipe.CategoryId,
+            };
             _context.Recipes.Add(newRecipe);
             _context.SaveChanges();
         }
@@ -78,7 +86,7 @@ namespace FlavorsomeDelights.WebApp.Repository
         public void DeleteRecipe(int id)
         {
             var recipeForDelete = _context.Recipes.Find(id);
-            if(recipeForDelete != null)
+            if (recipeForDelete != null)
             {
                 _context.Recipes.Remove(recipeForDelete);
                 _context.SaveChanges();

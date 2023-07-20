@@ -4,6 +4,7 @@ using FlavorsomeDelights.WebApp.Models;
 using FlavorsomeDelights.WebApp.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace FlavorsomeDelights.WebApp.Controllers
@@ -36,7 +37,22 @@ namespace FlavorsomeDelights.WebApp.Controllers
         // GET: Recipe/Create
         public ActionResult Create()
         {
-            return View(new RecipeDetailedItem());
+            var repository = new CategoryRepository(_context);
+            var allCategories = repository.GetAllCategories();
+            var result = allCategories.Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.Type
+            });
+            ViewBag.Categories = result;
+            ViewBag.ComplexityTypes = new List<SelectListItem>
+            {
+                new SelectListItem { Value = "Beginner", Text = "Beginner" },
+                new SelectListItem { Value = "Intermediate", Text = "Intermediate" },
+                new SelectListItem { Value = "Advanced", Text = "Advanced" }
+            };
+
+            return View(new RecipeCreateItem());
         }
 
         // POST: Recipe/Create
@@ -44,21 +60,26 @@ namespace FlavorsomeDelights.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
         {
-            try
+            var repository = new RecipeRepository(_context);
+            var recipe = new RecipeCreateItem
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+                Title = collection["Title"],
+                HowToPrepare = collection["HowToPrepare"],
+                Complexity = collection["Complexity"],
+                Serves = int.Parse(collection["Serves"]),
+                ImageUrl = collection["ImageUrl"],
+                CategoryId = int.Parse(collection["CategoryId"]),
+            };
+            repository.CreateNewRecipe(recipe);
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Recipe/Edit/5
         public async Task<IActionResult> Edit(int id)   //TODO: Check if it works correctly
-        {            
+        {
             var repository = new RecipeRepository(_context);    //TODO:neccessary? -> if(id!=0); if(result!=null)...
-           
+
             if (id == 0)
             {
                 return NotFound();
