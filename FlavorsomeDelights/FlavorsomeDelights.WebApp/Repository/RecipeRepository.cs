@@ -1,11 +1,13 @@
 ﻿using FlavorsomeDelights.WebApp.Database;
 using FlavorsomeDelights.WebApp.Entities;
 using FlavorsomeDelights.WebApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FlavorsomeDelights.WebApp.Repository
 {
     public class RecipeRepository
     {
+        Random r = new Random();
         private readonly Contexts _context;
 
         public RecipeRepository(Contexts context)
@@ -22,8 +24,7 @@ namespace FlavorsomeDelights.WebApp.Repository
                 Complexity = r.Complexity,
                 Serves = r.Serves,
                 ImageUrl = r.ImageUrl
-            }
-            ).ToList();
+            }).ToList();
         }
 
         public List<RecipeListItem> GetAllRecipesByComplexity(string chosenDifficulty)
@@ -78,7 +79,22 @@ namespace FlavorsomeDelights.WebApp.Repository
                 Serves = recipe.Serves,
                 ImageUrl = recipe.ImageUrl,
                 CategoryId = recipe.CategoryId,
+                Ingredients = new List<RecipeIngredient>()
             };
+
+            for (int i = 0; i < 5; i++)
+            {
+                int idOfIngredient = r.Next(1, 40);
+                int quantity = r.Next(1, 10);
+                var ingredient = _context.Ingredients.Single(i => i.IngredientId == idOfIngredient);
+
+                newRecipe.Ingredients.Add(new RecipeIngredient
+                {
+                    Ingredient = ingredient,
+                    Quantity = quantity,
+                });
+            }
+
             _context.Recipes.Add(newRecipe);
             _context.SaveChanges();
         }

@@ -30,6 +30,6 @@ namespace FlavorsomeDelights.WebApp.Entities
         public int CategoryId { get; set; }
         public Category Category { get; set; } = null!;
 
-        public List<RecipeIngredient> Ingredients { get; set; }
+        public virtual List<RecipeIngredient> Ingredients { get; set; }
     }
 }
