@@ -19,23 +19,36 @@ html {
 
 body {
     margin-bottom: 60px;
-    background-color: #deb373;
+    background-color: #9f7a77;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
+div.fullscreen-image {
+    margin: 0;
+    width: 100%;
+}
+
+    div.fullscreen-image img {
+        width: 100%;
+    }
+
 .containerfooter {
-    background-color: #9c7d4f;
+    background-color: #0000008c;
     color: white;
     margin: 0 auto;
+    padding: 0px;
     display: flex;
     justify-content: center;
 }
 
 
 a.nav-link {
-    font-size: 30px;
+    font-size: 1rem;
     margin: 7px;
-    font-weight: bold;
+    font-weight: normal;
     font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
 }
 
 .navbar-brand img {
@@ -70,7 +83,7 @@ img.images-list {
 }
 
     .card-link:hover {
-        color: #db793b;
+        color: #9f7a77;
     }
 
 .privacy-link {
@@ -85,11 +98,9 @@ img.images-list {
 .details-img {
     height: 30rem;
     max-width: 30rem;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
-.preparation {
-}
 
 .container-create-form {
     display: flex;
@@ -119,4 +130,32 @@ img.images-list {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.material-symbols-outlined {
+    position: relative;
+    top: 21rem;
+    right: 21rem;
+    border-radius: 15px;
+}
 
+    .material-symbols-outlined:hover {
+        background-color: #e85b56;
+    }
+
+
+
+img.icons {
+    width: 8%;
+    height: 8%;
+}
+
+ul {
+    list-style-image: linear-gradient(to left bottom, white, black);
+}
+
+.details-container {
+    margin: 0 2rem;
+    background-color: #0000005e;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+}
