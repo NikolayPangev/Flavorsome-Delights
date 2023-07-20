@@ -3,24 +3,8 @@
 }
 @model FlavorsomeDelights.WebApp.Models.RecipeDetailedItem
 
-<style>
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-
-    .jumbotron {
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #f9f9f9;
-    }
-</style>
-
-<div class="container" style="text-align: center;">
-    <div class="jumbotron jumbotron-fluid">
+<div class="container-create-form" style="text-align: center;">
+    <div class="jumbotron-create-form jumbotron-fluid">
         <form method="post" style="max-width: 400px; margin: 0 auto;">
             <label for="RecipeTitle">Recipe Title:</label>
             <input type="text" id="RecipeTitle" name="RecipeTitle" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc;

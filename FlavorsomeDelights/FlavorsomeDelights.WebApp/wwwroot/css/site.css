@@ -91,6 +91,20 @@ img.images-list {
 .preparation {
 }
 
+.container-create-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.jumbotron-create-form {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
 .text-formatting {
     max-width: 1000px;
     margin: 0 auto;
