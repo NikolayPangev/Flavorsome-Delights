@@ -30,7 +30,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
-    margin: -1rem;
+    margin: -1rem
 }
 
 .containerfooter {
@@ -106,7 +106,7 @@ img.images-list {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 68vh;
 }
 
 .jumbotron-create-form {
